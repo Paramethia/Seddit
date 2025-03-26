@@ -28,6 +28,7 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
+/config/google-storage.json
 /public/assets
 
 # Ignore master key for decrypting credentials and more.
