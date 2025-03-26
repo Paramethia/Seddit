@@ -77,4 +77,12 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
+  adapter: postgresql
+  encoding: unicode
   url: <%= ENV["DATABASE_URL"] %>
+
+  cable:
+    adapter: postgresql
+    database: seddit
+    username: kyrin
+    password: 4pc6QwKN4Zt0bnzLHFSiAVV2P1JqFxCR>
