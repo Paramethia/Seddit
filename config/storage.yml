@@ -8,7 +8,7 @@ local:
 
 google:
   service: GCS
-  project: "rails-storage@seddit-454921.iam.gserviceaccount.com"
+  project: "google-storage.json"
   credentials: <%= Rails.root.join("config/google-storage.json") %>
   bucket: "seddit-cloud-storage"
 
