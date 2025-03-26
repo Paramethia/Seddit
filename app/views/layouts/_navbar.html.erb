@@ -1,0 +1,36 @@
+<!-- Top Navbar -->
+
+<nav class="Top-nav">
+    <div class="logo">
+        <img id="Seddit-logo" src="https://res.cloudinary.com/dbdh6zbvt/image/upload/v1738934443/Seddit_logo_acbbry.png" alt="Seddit Logo">
+        <span>Seddit</span>   
+    </div>
+
+    <div class="search-bar">
+        <span> <i class="fa-solid fa-magnifying-glass"></i> </span>
+        <input type="text" placeholder="What you want?">
+    </div>
+    <div class="user-actions">
+        <% if current_user %>
+            <%= link_to new_sed_path do %> <span id="nav-span"><i class="fa-solid fa-plus"></i> <strong>Create sed</strong> </span> <% end %>
+            <span id="create-sed-tt">Create post</span>
+        <% else %>
+            <%= link_to new_user_session_path do %> <button> Log in </button> <% end %>
+        <% end %>
+        <i id="options" class="fa-solid fa-list"></i>
+    </div>
+</nav>
+
+<!-- Sidebar -->
+
+<aside class="Side-bar">
+    <%= link_to root_path, class: (current_page?(root_path) ? "ancor" : ""), id: (current_page?(seds_path) ? "home" : "") do %> <span><i class="fa-solid fa-house"></i> Home </span> <% end %>
+    <%= link_to subseddits_path, class: (current_page?(subseddits_path) ? "ancor" : "") do %> <span><i class="fa-solid fa-users"></i> Communities </span> <% end %> <!-- <i class="fa-solid fa-fire"></i> -->
+    <%= link_to subseddits_path do %> <span id="popular"><i class="fa-brands fa-rocketchat"></i> Popular </span> <% end %>
+    <hr />
+    <center><span style="font-weight: 400; filter: brightness(80%)"> Recent <i class="fa-solid fa-arrow-down"></i> </span></center>
+    <hr />
+    <center><span style="font-weight: 400; filter: brightness(80%)"> Joins <i class="fa-solid fa-arrow-down"></i> </span></center>
+    <hr />
+    <%= link_to new_subseddit_path do %> <span> Create subseddit </span> <% end %>
+</aside>

@@ -1,0 +1,22 @@
+<div class="subseddit <%= dom_id(subseddit) %>">
+  <h1> S/<%= subseddit.name %> </h1>
+  <br />
+  <h4> <%= subseddit.description %> </h3>  
+  <p style="font-size: 14px"><span style="color: lightgray"><i class="fa-solid fa-user-tie"></i> Owner:</span> <span style="color: #964c03"><%= @subseddit.owner %></span></p>
+
+  <div class="sub-options">
+    <%= link_to new_sed_path(subseddit_title: @subseddit.name) do %> <span><i class="fa-solid fa-plus"></i> Create sed </span> <% end %>
+    <% if current_user.subseddit_memberships.include?(@subseddit) && current_user.id != @subseddit.user_id %>
+      <%= button_to "Leave", subseddit_leave_path(@subseddit), method: :delete, id: "leave-button" %>
+    <% else %>
+      <% if current_user.id != @subseddit.user_id %>
+      <%= button_to "Join", subseddit_join_path(@subseddit), method: :post, id: "join-button" %>
+      <% end %>
+    <% end %>
+    <% if current_user.id == @subseddit.user_id %>
+      <%= link_to edit_subseddit_path(@subseddit) do %> <span><i class="fa-solid fa-pen-to-square"></i> Edit subseddit </span> <% end %>
+      <%= button_to @subseddit, method: :delete, id: "sub-delete-b" do %> <span><i class="fa-solid fa-trash"></i> Delete subseddit </span> <% end %>
+    <% end %>
+  </div>
+  
+</div>

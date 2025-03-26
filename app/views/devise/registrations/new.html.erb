@@ -1,0 +1,64 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+  <div class="auth-overlay">
+    <div class="container signup-container">
+      <%= link_to new_session_path(resource_name) do %> <span id="back-btn"> <i class="fa-solid fa-arrow-left"></i> </span> <% end %>
+      <br />
+      <h2>Sign up</h2>
+      <p id="TOS"> No rules or TOS set as of yet. </p>
+      <br />
+
+      <% if flash[:error].present? %>
+      <div class="error-message"><%= flash[:error] %></div>
+      <% end %>
+
+      <div class="field">
+          <center>
+          <%= f.label :username %>
+          <%= f.text_field :username, minlength: 3, maxlength: 17, autofocus: true, id: "registration-username"  %>
+          </center>
+      </div>
+
+      <div class="field">
+          <center>
+          <span id="e-label"><%= f.label :email %></span>
+          <%= f.email_field :email, maxlength: 27, autocomplete: "email", id: "registration-email" %>
+          </center>
+      </div>
+
+      <div class="field">
+          <center>
+          <%= f.label :password %>
+          <!--
+          <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+          -->
+          <%= f.password_field :password, minlength: 5, maxlength: 22, autocomplete: "new-password", id: "registration-password" %>
+          </center>
+      </div>
+
+      <div class="field">
+          <center>
+          <%= f.label "password again" %>
+          <%= f.password_field :password_confirmation, maxlength: 22, autocomplete: "new-password", id: "registration-password-again" %>
+          </center>
+      </div>
+
+      <p id="registration-error"></p>
+
+      <div class="actions">
+          <%= f.submit "Sign up", id: "register-button" %>
+      </div>
+
+      <!--
+      <div id="oldie"><span style="color: lightgrey"> Already have an account? </span> <span id="csign" style="color: #964c03" onclick="closeSignup()"> Log in <span></div>
+      <div id="forgot"><span style="color: #964c03"> Forgot password? </span></div>
+      -->
+
+    </div>
+    
+
+<% end %>
+
+

@@ -1,0 +1,8 @@
+<center><span id="notice"><%= notice %></span></center>
+
+<% content_for :title, "Subseddits" %>
+
+<% @subseddits.each do |subseddit| %>
+  <%= render "subseddits/subseddit_preview", subseddit: subseddit %>
+<% end %>
+

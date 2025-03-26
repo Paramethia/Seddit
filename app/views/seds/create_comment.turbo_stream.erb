@@ -1,0 +1,4 @@
+<%= turbo_stream.append "comments" do %>
+  <p><%= @comment.commenter %></p>
+  <p><%= @comment.content %></p>
+<% end %>

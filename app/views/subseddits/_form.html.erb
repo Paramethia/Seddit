@@ -1,0 +1,39 @@
+<%= form_with(model: subseddit) do |form| %>
+  <% if subseddit.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(subseddit.errors.count, "error") %> prohibited this subseddit from being saved:</h2>
+
+      <ul>
+        <% subseddit.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <div class="auth-overlay">
+      <div class="container" style="width:670px">
+        <%= link_to root_path do %> <span id="close-btn">✖</span> <% end %>
+        <h2> Create your own community </h2>
+        <p id="TOS"> Add a name and description that explains what your community entails. </p>
+        <br>
+        <div class="sub-t-field field">
+          <p id="Sslash">S/</p>
+          <center>
+          <%= form.label :name, style: "display: block" %>
+          <%= form.text_field :name, maxlength: 22, id: "subseddit-name" %>
+          </center>
+        </div>
+
+        <div class="field">
+          <center>
+          <%= form.label :description, maxlength: 280, style: "display: block" %>
+          <%= form.textarea :description, placeholder: "What is your community about?", id: "subseddit-description" %>
+          </center>
+        </div>
+        <p id="subseddit-creation-error"></p>
+        <%= form.submit "Create", id: "Sub-create-button", style: "width: 45%" %>
+      </div>
+    </div>
+  </div>
+<% end %>

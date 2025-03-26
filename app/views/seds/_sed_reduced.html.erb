@@ -1,0 +1,32 @@
+<hr />
+<div id="<%= dom_id sed %>" class="sed">
+  <h2> <%= sed.title %> </h2>
+  <div class="sed-info">
+    <%= link_to subseddit_path(sed.subseddit_name) do %>
+      <h3> S/<%= sed.subseddit_name %> </h3>
+    <% end %>
+    <strong><p> <%= sed.sedder %> ⁍ <span><%= time_ago_in_words(sed.created_at) %> ago</span> </p></strong>
+  </div>
+  <% if sed.image.present? %>
+    <div class="image-con">
+      <center><%= image_tag sed.image, id: "sed-image"%></center>
+    </div>
+  <% else %>
+    <br />
+  <% end %>
+  <p id="content"> <%= sed.content %> </p>
+  
+  <%= form_with(model: [@sed, @point], url: ascend_sed_path(sed), method: :post, class: "ascend-form") do |form| %>
+    <%= form.hidden_field :value, value: 1 %>
+    <%= form.submit "." %>
+  <% end %>
+  <span id="sed-points"> <%= sed.total_points %> </span>
+  <%= form_with(model: [@sed, @point], url: descend_sed_path(sed), method: :post, class: "descend-form") do |form| %>
+    <%= form.hidden_field :value, value: -1 %>
+    <%= form.submit "." %>
+  <% end %>
+  <div class="sed-icons">
+    <%= link_to sed do %><span><i class="fa-regular fa-comment"></i> <%= sed.comments.count %></span><% end %>
+    <span><i class="fa-regular fa-share-from-square"></i></span>
+  </div>
+</div>

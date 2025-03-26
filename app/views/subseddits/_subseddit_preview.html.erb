@@ -1,0 +1,18 @@
+<%= link_to subseddit_path(subseddit) do %>
+  <div class="subseddit-preview">
+    <div class="sub-info">
+      <!--
+      <svg class="avatar" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+      </svg>
+      -->
+      <i class="fa-solid fa-users-between-lines fa-2xl"></i>
+      <div>
+        <div id="name">S/<%= subseddit.name %></div>
+        <div id="seds-count"><%= subseddit.seds.count %> <% if subseddit.seds.count > 1 %> seds <% else %> sed <% end %></div>
+      </div>
+    </div>
+    <div id="member-count"><%= subseddit.memberships.count %> <% if subseddit.memberships.count > 1 %> members <% else %> member <% end %></div>
+  </div>
+<% end %>
+

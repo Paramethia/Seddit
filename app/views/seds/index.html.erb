@@ -1,0 +1,9 @@
+<span id="notice"><%= notice %></span>
+
+<% content_for :title, "Seds" %>
+
+<div id="seds">
+  <% @seds.each do |sed| %>
+    <%= render 'seds/sed_reduced', sed: sed %>
+  <% end %>
+</div>

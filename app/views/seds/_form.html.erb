@@ -1,0 +1,67 @@
+<%= form_with model: sed, class: "sed-from" do |form| %>
+
+  <h1 style="color: lightgrey"> Sed something </h1>
+
+  <% if sed.errors.any? %>
+    <div style="color: red">
+      <h3>Ensure the following: </h3>
+      <ul>
+        <% sed.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if params[:subseddit_title].present? %>
+    <%= form.hidden_field :subseddit_name, value: params[:subseddit_title] %>
+  <% else %>
+    <%= form.hidden_field :subseddit_name, maxlength: 22, style: "max-width: 400px", id: "sub-name-input" %>
+    <br />
+    <span id="sub-selection"> Choose a subseddit ▽</span> 
+    <br />
+    <div class="subseddits-list">
+      <% @subseddits.each do |subseddit| %>
+        <h3 id="sub-name"><%= subseddit.name %></h3>
+      <% end %>
+    </div>
+  <% end %>
+  <br />
+  <div class="field">
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title, maxlength: 45, id: "sed-title"%>
+  </div>
+
+  <p>Image <span style="color: lightgray">(optional)</span></p>
+  <div class="image-field">
+    <%= form.label :image, style: "display: none" %>
+    <i class="fa-solid fa-lg fa-cloud-arrow-up"></i>
+    <%= form.file_field :image, accept: "image/*" %>
+  </div>
+
+  <div class="image-preview">
+    <img id="preview" src="#" alt="Image preview">
+  </div>
+
+  <div class="field">
+    <%= form.label :content, style: "display: block" %>
+    <%= form.textarea :content, maxlength: 555, id: "sed-content"%>
+  </div>
+
+  <p id="sedding-error"></p>
+
+  <div>
+    <%= form.submit style: "width: 40%", id: "Sed-b" %>
+  </div>
+
+  <% if @sed.errors.any? %>
+    <div class="error-messages">
+      <ul>
+        <% @sed.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% end %>
