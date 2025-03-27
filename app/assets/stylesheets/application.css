@@ -849,7 +849,6 @@ main p { color: lightslategray }
 @media (max-width: 600px) {
     .user-actions span { background: #363636; padding-right: 2px; }
     .user-actions span strong { display: none }
-    .sed { max-height: 700px }
     .image-con img { max-width: 100% }
     .image-field { width: 80% }
 }
