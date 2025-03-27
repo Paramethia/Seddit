@@ -1,9 +1,3 @@
-google:
-  service: GCS
-  project: "google-storage.json"
-  credentials: <%= Rails.root.join("config/google-storage.json") %>
-  bucket: "seddit-cloud-storage"
-
 # Use bin/rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
 #   service: S3
@@ -13,11 +7,11 @@ google:
 #   bucket: your_own_bucket-<%= Rails.env %>
 
 # Remember not to checkin your GCS keyfile to a repository
-# google:
-#   service: GCS
-#   project: your_project
-#   credentials: <%= Rails.root.join("path/to/gcs.keyfile") %>
-#   bucket: your_own_bucket-<%= Rails.env %>
+google:
+  service: GCS
+  project: "seddit-454921"
+  credentials: <%= Rails.root.join("config/google-storage.json") %>
+  bucket: "seddit-cloud-storage"
 
 # Use bin/rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
 # microsoft:
