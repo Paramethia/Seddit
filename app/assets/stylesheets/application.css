@@ -499,7 +499,7 @@ main p { color: lightslategray }
     padding: 20px;
     border-radius: 8px;
     max-width: 788px;
-    max-height: 678px;
+    max-height: 740px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     position: relative;
     margin: 0 auto;
@@ -866,12 +866,6 @@ main p { color: lightslategray }
 
 @media (max-width: 420px) { 
     .search-bar input { width: 150px } 
-
-    .image-con { 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
 
     .sed-icons span { margin: 0 25px }
 
