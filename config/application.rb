@@ -1,6 +1,16 @@
 require_relative "boot"
 
 require "rails/all"
+require 'base64'
+require 'json'
+
+google_credentials = JSON.parse(Base64.decode64(ENV['GOOGLE_CREDENTIALS_BASE_64']))
+ENV['GOOGLE_APPLICATION_CREDENTIALS'] = "/tmp/gcloud_key.json"
+
+# Save it to a temporary file
+File.open(ENV['GOOGLE_APPLICATION_CREDENTIALS'], 'w') do |file|
+  file.write(JSON.generate(google_credentials))
+end
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
