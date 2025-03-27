@@ -10,7 +10,7 @@ class Sed < ApplicationRecord
     validates :subseddit_name, presence: true
     validates :sedder, presence: true
 
-    has_one_attached :image, service_metadata: { public: true }, dependent: :destroy
+    has_one_attached :image, dependent: :destroy
     
     has_many :points, dependent: :destroy
     has_many :comments, dependent: :destroy
