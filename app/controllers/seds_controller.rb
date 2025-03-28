@@ -29,8 +29,7 @@ class SedsController < ApplicationController
     @point = current_user.points.find_or_initialize_by(sed: @sed)
     @point.value = 1
     @point.save
-    @sed.point = @sed.points.count
-    @sed.save
+    @sed.update(point: @sed.points.sum(:value))
     redirect_back(fallback_location: root_path)
   end
 
@@ -44,8 +43,7 @@ class SedsController < ApplicationController
       @point.value = -1
     end
     @point.save
-    @sed.point = @sed.points.count
-    @sed.save
+    @sed.update(point: @sed.points.sum(:value))
     redirect_back(fallback_location: root_path)
   end
 
