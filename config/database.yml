@@ -77,22 +77,22 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  primary: 
+  primary: &primary_production
     adapter: postgresql
     encoding: unicode
     url: <%= ENV["DATABASE_URL"] %>
 
   cache:
-    <<: *primary
-    url: <%= ENV["DATABASE_URL"] %>
+    <<: *primary_production
+    database: seddit
     migrations_paths: db/cache_migrate
 
   queue:
-    <<: *primary
-    url: <%= ENV["DATABASE_URL"] %>
+    <<: *primary_production
+    database: seddit
     migrations_paths: db/queue_migrate
 
   cable:
-    <<: *primary
-    url: <%= ENV["DATABASE_URL"] %>
+    <<: *primary_production
+    database: seddit
     migrations_paths: db/cable_migrate
