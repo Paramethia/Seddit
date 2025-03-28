@@ -6,12 +6,16 @@
 
   <div class="sub-options">
     <%= link_to new_sed_path(subseddit_title: @subseddit.name) do %> <span><i class="fa-solid fa-plus"></i> Create sed </span> <% end %>
-    <% if current_user.subseddit_memberships.include?(@subseddit) && current_user.id != @subseddit.user_id %>
-      <%= button_to "Leave", subseddit_leave_path(@subseddit), method: :delete, id: "leave-button" %>
-    <% else %>
-      <% if current_user.id != @subseddit.user_id %>
-      <%= button_to "Join", subseddit_join_path(@subseddit), method: :post, id: "join-button" %>
+    <% if current_user %>
+      <% if current_user.subseddit_memberships.include?(@subseddit) && current_user.id != @subseddit.user_id %>
+        <%= button_to "Leave", subseddit_leave_path(@subseddit), method: :delete, id: "leave-button" %>
+      <% else %>
+        <% if current_user.id != @subseddit.user_id %>
+        <%= button_to "Join", subseddit_join_path(@subseddit), method: :post, id: "join-button" %>
+        <% end %>
       <% end %>
+    <% else %>
+      <%= button_to "Join", subseddit_join_path(@subseddit), method: :post, id: "join-button" %>
     <% end %>
     <% if current_user.id == @subseddit.user_id %>
       <%= link_to edit_subseddit_path(@subseddit) do %> <span><i class="fa-solid fa-pen-to-square"></i> Edit subseddit </span> <% end %>

@@ -1,5 +1,5 @@
 class MembershipsController < ApplicationController
-    before_action :authenticate_user!  # Ensure users are logged in
+    before_action :authenticate_user!, only: %i[ create destroy ]
     before_action :set_subseddit
   
     def create
@@ -8,7 +8,7 @@ class MembershipsController < ApplicationController
       membership = current_user.memberships.new(subseddit: @subseddit)
   
       if membership.save
-         @subseddit.increment!(:people)
+        @subseddit.increment!(:people)
         redirect_to subseddit_path(@subseddit)
       else
         redirect_to subseddit_path(@subseddit)
