@@ -83,13 +83,13 @@ production:
     url: <%= ENV["DATABASE_URL"] %>
 
   cache:
-    url: <%= ENV["DATABASE_URL"] %>
+    databse: seddit
     migrations_paths: db/cache_migrate
 
   queue:
-    url: <%= ENV["DATABASE_URL"] %>
-    migrations_paths: db/cache_migrate
+    database: seddit
+    migrations_paths: db/queue__migrate
 
   cable:
-    url: <%= ENV["DATABASE_URL"] %>
-    migrations_paths: db/cache_migrate
+    database: seddit
+    migrations_paths: db/cable_migrate
