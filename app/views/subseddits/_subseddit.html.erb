@@ -14,12 +14,12 @@
         <%= button_to "Join", subseddit_join_path(@subseddit), method: :post, id: "join-button" %>
         <% end %>
       <% end %>
+      <% if current_user.id == @subseddit.user_id %>
+        <%= link_to edit_subseddit_path(@subseddit) do %> <span><i class="fa-solid fa-pen-to-square"></i> Edit subseddit </span> <% end %>
+        <%= button_to @subseddit, method: :delete, id: "sub-delete-b" do %> <span><i class="fa-solid fa-trash"></i> Delete subseddit </span> <% end %>
+      <% end %>
     <% else %>
       <%= button_to "Join", subseddit_join_path(@subseddit), method: :post, id: "join-button" %>
-    <% end %>
-    <% if current_user.id == @subseddit.user_id %>
-      <%= link_to edit_subseddit_path(@subseddit) do %> <span><i class="fa-solid fa-pen-to-square"></i> Edit subseddit </span> <% end %>
-      <%= button_to @subseddit, method: :delete, id: "sub-delete-b" do %> <span><i class="fa-solid fa-trash"></i> Delete subseddit </span> <% end %>
     <% end %>
   </div>
   
