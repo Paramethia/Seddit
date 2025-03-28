@@ -594,10 +594,17 @@ main p { color: lightslategray }
     background-color: rgba(121, 147, 158, 0.5);
     cursor: pointer;
 }
-.descend-form input[type="submit"] { background-image: url("https://i.im.ge/2025/03/18/pDC6W8.down-arrow.png") }
+#ascend-color { background-color: #964c03 }
 
-.ascend-form input[type="submit"]:hover, .descend-form input[type="submit"]:hover { background-color: rgba(81, 107, 128, 0.5) }
 #sed-points { margin: 0 7px }
+
+.descend-form input[type="submit"] { background-image: url("https://i.im.ge/2025/03/18/pDC6W8.down-arrow.png") }
+#descend-color { background-color: #420d09 }
+
+.ascend-form input[type="submit"]:hover, .descend-form input[type="submit"]:hover { 
+    background-color: rgba(81, 107, 128, 0.5);
+    border: 1 solid black;
+}
 
 .sed-icons { display: inline }
 

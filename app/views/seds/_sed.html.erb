@@ -1,6 +1,6 @@
 <hr />
 <div id="<%= dom_id sed %>" class="sed">
-  <% if current_user.id == sed.user_id %>
+  <% if current_user && current_user.id == sed.user_id %>
     <span id="sed-options"><i class="fa-solid fa-ellipsis"></i></span>
   <% end %>
   <div class="options">
@@ -25,14 +25,15 @@
   <% end %>
   <p id="content"> <%= sed.content %> </p>
   
+  <% if current_user %> <% user_vote = current_user.points.find_by(sed: sed) %> <% end %>
   <%= form_with(model: [@sed, @point], url: ascend_sed_path(sed), method: :post, class: "ascend-form") do |form| %>
     <%= form.hidden_field :value, value: 1 %>
-    <%= form.submit "." %>
+    <%= form.submit ".", id: user_vote&.value == 1 ? "ascend-color" : "" %>
   <% end %>
   <span id="sed-points"> <%= sed.total_points %> </span>
   <%= form_with(model: [@sed, @point], url: descend_sed_path(sed), method: :post, class: "descend-form") do |form| %>
     <%= form.hidden_field :value, value: -1 %>
-    <%= form.submit "." %>
+    <%= form.submit ".", id: user_vote&.value == -1 ? 'descend-color' : "" %>
   <% end %>
   <div class="sed-icons">
     <%= link_to sed do %><span><i class="fa-regular fa-comment"></i> <%= sed.comments.count %></span><% end %>
