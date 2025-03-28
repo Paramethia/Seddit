@@ -866,6 +866,16 @@ main p { color: lightslategray }
 @media (max-width: 420px) { 
     .search-bar input { width: 150px } 
 
+    .image-con { 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .image-con img { 
+        position: relative; 
+        top: 2px; 
+    }
+
     .sed-icons span { margin: 0 25px }
 
     .container { max-width: 370px}
