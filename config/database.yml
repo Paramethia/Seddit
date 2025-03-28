@@ -84,15 +84,15 @@ production:
 
   cache:
     <<: *primary
-    database: seddit
+    url: <%= ENV["DATABASE_URL"] %>
     migrations_paths: db/cache_migrate
 
   queue:
     <<: *primary
-    database: seddit
+    url: <%= ENV["DATABASE_URL"] %>
     migrations_paths: db/queue_migrate
 
   cable:
     <<: *primary
-    database: seddit
+    url: <%= ENV["DATABASE_URL"] %>
     migrations_paths: db/cable_migrate
