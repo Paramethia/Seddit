@@ -84,7 +84,7 @@ production:
 
   cache:
     <<: *primary
-    databse: seddit
+    database: seddit
     migrations_paths: db/cache_migrate
 
   queue:
