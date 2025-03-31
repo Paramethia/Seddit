@@ -2,7 +2,8 @@
 <html>
   <head>
     <title> Seddit - Yeah I said it! </title>
-    <title><%= content_for(:title) || "Seddit" %></title>
+    <!-- <title><%= content_for(:title) %></title> -->
+    <meta property="og:image" content="https://res.cloudinary.com/dbdh6zbvt/image/upload/v1743435914/Brown_reddit_logo_i91sy8.jpg">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -13,7 +14,7 @@
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
-    <link rel="icon" href="https://res.cloudinary.com/dbdh6zbvt/image/upload/v1738694085/Brown_reddit_logo_plirg0.jpg">
+    <link rel="icon" href="https://res.cloudinary.com/dbdh6zbvt/image/upload/v1743436019/Seddit_logo_g5dcrz.png">
     <link rel="apple-touch-icon" href="/icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
