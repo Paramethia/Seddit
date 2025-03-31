@@ -588,7 +588,7 @@ main p { color: lightslategray }
     height: 30px;
     border: none;
     border-radius: 15px;
-    background-image: url("https://i.im.ge/2025/03/18/pDCPoh.up-arrow.png");
+    background-image: url("up-arrow.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-color: rgba(121, 147, 158, 0.5);
@@ -598,7 +598,7 @@ main p { color: lightslategray }
 
 #sed-points { margin: 0 7px }
 
-.descend-form input[type="submit"] { background-image: url("https://i.im.ge/2025/03/18/pDC6W8.down-arrow.png") }
+.descend-form input[type="submit"] { background-image: url("down-arrow.png") }
 #descend-color { background-color: #420d09 }
 
 .ascend-form input[type="submit"]:hover, .descend-form input[type="submit"]:hover { 
