@@ -765,7 +765,7 @@ main p { color: lightslategray }
     font-size: 14px;
 }
 
-.cont { position: relative }
+.cunt { position: relative }
 
 .subseddit { 
     max-width: 788px;
@@ -784,13 +784,17 @@ main p { color: lightslategray }
     justify-content: space-evenly;
     margin-top: 40px;
 }
-
 .sub-options span {
     padding: 8px;
     border: 1px solid lightgray;
     border-radius: 8px;
+    color: lightgray;
 }
-.sub-options span:hover { border: 1px solid gray }
+.sub-options span:hover { 
+    border: 1px solid gray;
+    cursor: pointer;
+    color: gray;
+}
 
 #sub-share {
     position: relative;
@@ -825,7 +829,7 @@ main p { color: lightslategray }
     color: darkslategray;
 }
 
-#sub-delete-b {
+#sub-delete-b, #sub-delete {
     position: relative;
     border: none;
     padding: 7px;
