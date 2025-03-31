@@ -3,9 +3,12 @@
   <br />
   <h4> <%= subseddit.description %> </h3>  
   <p style="font-size: 14px"><span style="color: lightgray"><i class="fa-solid fa-user-tie"></i> Owner:</span> <span style="color: #964c03"><%= @subseddit.owner %></span></p>
+  <p style="font-size: 12px; color: #88807d">Created <%= subseddit.created_at.strftime("%Y %B %d ") %> </p>
 
+  <div class="cont">
   <div class="sub-options">
     <%= link_to new_sed_path(subseddit_title: @subseddit.name) do %> <span><i class="fa-solid fa-plus"></i> Create sed </span> <% end %>
+    <span id="sub-share" data-url="<%= request.original_url %>"><i class="fa-regular fa-share-from-square"></i></i></span>
     <% if current_user %>
       <% if current_user.subseddit_memberships.include?(@subseddit) && current_user.id != @subseddit.user_id %>
         <%= button_to "Leave", subseddit_leave_path(@subseddit), method: :delete, id: "leave-button" %>
@@ -15,12 +18,19 @@
         <% end %>
       <% end %>
       <% if current_user.id == @subseddit.user_id %>
-        <%= link_to edit_subseddit_path(@subseddit) do %> <span><i class="fa-solid fa-pen-to-square"></i> Edit subseddit </span> <% end %>
+        <%= link_to edit_subseddit_path(@subseddit), id: "edit-sub" do %> <span><i class="fa-solid fa-pen-to-square"></i> Edit subseddit </span> <% end %>
         <%= button_to @subseddit, method: :delete, id: "sub-delete-b" do %> <span><i class="fa-solid fa-trash"></i> Delete subseddit </span> <% end %>
+        <span id="owner-options"><i class="fa-solid fa-ellipsis"></i></span>
       <% end %>
     <% else %>
       <%= button_to "Join", subseddit_join_path(@subseddit), method: :post, id: "join-button" %>
     <% end %>
+  </div>
+  <div class="owner-options">
+    <%= link_to edit_subseddit_path(@subseddit) do %> <span><i class="fa-solid fa-pen-to-square"></i> Edit sub </span> <% end %>
+    <hr />
+    <%= button_to @subseddit, method: :delete, id: "sub-delete" do %> <span><i class="fa-solid fa-trash"></i> Delete sub </span> <% end %>
+  </div>
   </div>
   
 </div>
