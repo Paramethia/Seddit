@@ -603,7 +603,7 @@ main p { color: lightslategray }
 
 .ascend-form input[type="submit"]:hover, .descend-form input[type="submit"]:hover { 
     background-color: rgba(81, 107, 128, 0.5);
-    border: 1 solid black;
+    border: 1px solid black;
 }
 
 .sed-icons { display: inline }
@@ -765,10 +765,15 @@ main p { color: lightslategray }
     font-size: 14px;
 }
 
+.cont { position: relative }
+
 .subseddit { 
     max-width: 788px;
     padding: 17px; 
     margin: 14px auto;
+    background-color: #111111;
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
 }
 
 .subseddit h1 { color: lightgray }
@@ -786,6 +791,16 @@ main p { color: lightslategray }
     border-radius: 8px;
 }
 .sub-options span:hover { border: 1px solid gray }
+
+#sub-share {
+    position: relative;
+    bottom: 8px;
+}
+#owner-options { 
+    display: none;
+    position: relative;
+    bottom: 7px;
+}
 
 .sub-options button {
     padding: 5px;
@@ -820,7 +835,30 @@ main p { color: lightslategray }
     color: lightgray;
     cursor: pointer;
 }
-#sub-delete-b:hover { color: gray }
+#sub-delete-b span { margin: 0 }
+#sub-delete-b span:hover { 
+    color: #a91b0d; 
+    border: 1px solid #a91b0d;  
+}
+
+.owner-options {
+    display: none;
+    position: absolute;
+    bottom: -97px;
+    right: -17px;
+    border-radius: 7px;
+    padding: 12px;
+    background-color: rgba(22, 22, 22, 0.8);
+    z-index: 4;
+}
+.owner-options span { font-size: 17px  }
+.owner-options hr { margin: 7px 0 }
+.owner-options #sub-delete { 
+    display: block;
+    position: static;
+    padding: 0;
+    color: #a91b0d;
+}
 
 /* Responsive */
 
@@ -858,6 +896,10 @@ main p { color: lightslategray }
     .user-actions span strong { display: none }
     .image-con img { max-width: 100% }
     .image-field { width: 80% }
+
+    .sub-options span { margin: 0 10px }
+    .sub-options form { display: inline-block }
+    #join-button { margin-right: 20px }
 }
 
 @media (max-width: 480px) { 
@@ -868,6 +910,10 @@ main p { color: lightslategray }
     .container { max-width: 444px }
     .sub-t-field input { width: 100% }
     #Sslash { left: 15px }
+
+    #edit-sub { display: none }
+    #sub-delete-b { display: none }
+    #owner-options { display: inline }
 }
 
 @media (max-width: 420px) { 
@@ -887,7 +933,6 @@ main p { color: lightslategray }
 
     .container { max-width: 370px}
     .container h2 { margin-top: 40px }
-    
 } 
 
 @media (max-width: 385px) { 
