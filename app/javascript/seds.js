@@ -61,19 +61,23 @@ if (sedButton) {
         if (!sedTitle.value, !sedContent.value, !subChoose.value) {
             event.preventDefault();
             sedError.innerText = "The title or content of your sed it empty. Also make sure you chose a subseddit to post to."
-            setTimeout(() => { sedError.innerText = "" }, 4200 );
+            setTimeout(() => { sedError.innerText = "" }, 5500 );
         }
     }
 }
 
-function copyToClipboard(element) {
-    const url = element.getAttribute("data-url");
-  
-    navigator.clipboard.writeText(url).then(() => {
-      alert("Post link copied to clipboard!");
-    }).catch(err => {
-      console.error("Failed to copy: ", err);
-    });
+const sedShareS = document.getElementById("sed-share");
+
+if (sedShareS) {
+    sedShareS.onclick = function() {
+        const url = sedShareS.getAttribute("data-url");
+    
+        navigator.clipboard.writeText(url).then(() => {
+        console.log("Sed link copied to clipboard");
+        }).catch(err => {
+        console.error("Failed to copy: ", err);
+        });
+    }
 }
 
 const optionsSpan = document.getElementById("sed-options");

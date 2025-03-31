@@ -37,7 +37,7 @@
   <% end %>
   <div class="sed-icons">
     <%= link_to sed do %><span><i class="fa-regular fa-comment"></i> <%= sed.comments.count %></span><% end %>
-    <span data-url="<%= request.original_url %>" onclick="copyToClipboard(this)"><i class="fa-regular fa-share-from-square"></i></i></span>
+    <span data-url="<%= request.original_url %>" id="sed-share"><i class="fa-regular fa-share-from-square"></i></i></span>
   </div>
 </div>
 <%= form_with(model: [@sed, @comment], url: create_comment_sed_path(sed), method: :post, class: "comment-form", data: { turbo: true }) do |form| %>
