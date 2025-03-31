@@ -26,24 +26,34 @@ class SedsController < ApplicationController
 
   def ascend 
     @sed = Sed.find_by(title: params[:id])
-    @point = current_user.points.find_or_initialize_by(sed: @sed)
-    @point.value = 1
-    @point.save
+    @point = current_user.points.find_by(sed: @sed)
+
+    if @point&.value == 1
+      @point.destroy
+    else 
+      @point = current_user.points.find_or_initialize_by(sed: @sed)
+      @point.value = 1
+      @point.save
+    end
+
     @sed.update(point: @sed.points.sum(:value))
     redirect_back(fallback_location: root_path)
   end
 
   def descend
     @sed = Sed.find_by(title: params[:id])
-    @point = current_user.points.find_or_initialize_by(sed: @sed)
+    @point = current_user.points.find_by(sed: @sed)
     
-    if @point.persisted? && @point.value == 1
-      @point.value = 0
+    if @point&.value == -1
+      @point.destroy
     else
+      @point = current_user.points.find_or_initialize_by(sed: @sed)
       @point.value = -1
+      @point.save
     end
-    @point.save
+
     @sed.update(point: @sed.points.sum(:value))
+
     redirect_back(fallback_location: root_path)
   end
 
